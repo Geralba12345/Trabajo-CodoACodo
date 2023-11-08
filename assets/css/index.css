@@ -8,7 +8,6 @@
 }
 
 body{
-    border: 1px solid black;
     height: 100vh;
     background: linear-gradient(rgba(245, 245, 245, 1.00), rgba(5, 7, 12, 0.30)),
     url("../media/img/perros-jugando.jpg");
@@ -270,11 +269,6 @@ button:hover span:nth-child(4){
     top: 0;
 }
 
-
-
-
-
-  
 .producto.active {
     display: block;
 }
@@ -284,13 +278,10 @@ button:hover span:nth-child(4){
 }
 
 .container_items {
-    /*border: 1px solid red;*/
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 25px;
     margin: 35px;
-
-    
 }
 .producto {
     width: 100%;
