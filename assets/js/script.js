@@ -60,3 +60,27 @@ obtenerNuevaFoto();
 
 // Cambiar la foto cuando se hace clic
 cambiarFotoButton.addEventListener('click', obtenerNuevaFoto);
+
+
+function filtrarProductos(categoria) {
+  const productos = document.querySelectorAll('.producto');
+  productos.forEach(producto => {
+      if (producto.getAttribute('data-categoria') === categoria || categoria === 'todos') {
+          producto.classList.add('active');
+      } else {
+          producto.classList.remove('active');
+      }
+  });
+
+  // Mostrar u ocultar la descripción según la categoría seleccionada
+  const descripcionTienda = document.getElementById('descripcionTienda');
+  if (categoria === 'todos') {
+    descripcionTienda.style.display = 'block';
+  } else {
+    descripcionTienda.style.display = 'none';
+  }
+}
+
+
+
+
