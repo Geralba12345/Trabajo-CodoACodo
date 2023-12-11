@@ -1,0 +1,343 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block contenido %}
+
+    <title>Tienda</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="/"><img src="{% static './media/icons/perro.png' %}" alt="Logo de empresa"></a></div>
+            <ul class="links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+            <a href="{% url 'contacto' %}" class="action_btn">Hace tu pedido</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+            <li><a href="{% url 'tienda' %}">Tienda</a></li>
+            <li><a href="{% url 'contacto' %}">Contacto</a></li>
+        <li><a href="{% url 'contacto' %}" class="action_btn">Hace tu pedido</a></li>
+        </div>
+       </header>
+
+
+   <main>
+    
+    <div class="descripcion_tienda" id="descripcionTienda">
+        <b><p>Bienvenido a nuestra tienda de productos para mascotas.<br> <br>
+           Ofrecemos de forma exclusiva alimentos prescriptos, diseñados especialmente para atender las principales patologías que surgen en la clínica diaria.<br><br> 
+           Estos alimentos se venden exclusivamente en veterinarias o establecimientos autorizados por profesionales de la salud animal y su uso puede requerir supervisión y recomendación de un veterinario. <br><br><br>
+           Selecciona una categoría para ver los productos disponibles.</p></b>
+      </div>
+      
+
+    <div class="productos">
+        <div class="producto" data-categoria="perro">
+            <div class="container_items">
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src= "{% static './media/img/mv/dog/articular.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>ARTICULAR</h2>
+                        <h3>Para caninos de todas las edades.</h3>
+                        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para perros cachorros, adultos y gerontes para colaborar en la prevención y tratamiento de problemas osteoarticulares.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src= "{% static './media/img/mv/dog/cardio.png' %}"alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>CARDIO</h2>
+                        <h3>Para caninos de todas las edades.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para perros que padecen hipertensión arterial o algún tipo de enfermedad cardíaca.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/dog/gastroIntestinal.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>GASTROINTESTINAL</h2>
+                        <h3>Para caninos de todas las edades.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta de alta digestibilidad, alta energía y bajo residuo. Esta fórmula está indicada para la prevención y tratamiento de problemas digestivos.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/dog/obesidad.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>OBESIDAD</h2>
+                        <h3>Para caninos de todas las edades.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para perros obesos o con tendencia al sobrepeso. Diseñada para reducir el exceso de peso y mantener un score corporal ideal. Formulada sin exceso de fibra dietética.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/dog/renal.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>RENAL</h2>
+                        <h3>Para caninos adultos y gerontes</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para perros que padecen enfermedad renal crónica. Su formulación permite utilizarlo para el manejo nutricional de perros con disfunción hepática.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/dog/sensibilidad.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>SENSIBILIDAD</h2>
+                        <h3>Para caninos cachorros y adultos.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para perros con dermatitis, alergias e intolerancias alimentarias tanto a nivel dérmico como gastrointestinal.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>           
+            </div>
+        </div>
+
+
+        <div class="producto" data-categoria="gato"> 
+            <div class="container_items">
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/cat/gastroIntestinal.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>GASTROINTESTINAL</h2>
+                        <h3>Para gatos de todas las edades.</h3>
+        
+                        <p class="prod_descripcion">Dieta prescripta de alta digestibilidad, alta energía y bajo residuo, para gatos cachorros y adultos. Está indicada para la prevención y tratamiento de problemas digestivos.</p>
+                        <a href="#"><b>Mas Info.</b></a> 
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/cat/obesidad.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>OBESIDAD</h2>
+                        <h3>Para gatos de todas las edades.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para gatos obesos o con tendencia al sobrepeso. Diseñada para reducir el exceso de peso y para mantener un score corporal ideal. Formulada sin exceso de fibra dietética.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a> 
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/mv/cat/renal.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>RENAL</h2>
+                        <h3>Para gatos de todas las edades.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta indicada para gatos de todas las edades con insuficiencia renal.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img"> 
+                        <img class="img_prod" src="{% static './media/img/mv/cat/urinario.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>URINARIO</h2>
+                        <h3>Para gatos adultos.</h3>
+        
+                        <p class="prod_descripcion">
+                            Dieta prescripta para gatos con enfermedad de vías urinarias bajas. Esta fórmula está indicada para prevenir la formación de cristales de estruvita o de oxalato de calcio ante factores predisponentes.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>          
+            </div>
+        </div>
+
+
+        <div class="producto" data-categoria="otros">
+            <div class="container_items">
+                <div class="item">
+                    <div class="container_img"> 
+                        <img class="img_prod" src="{% static './media/img/otros/mixCanarios.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>MIX CANARIOS</h2>
+                    
+                        <p class="prod_descripcion">
+                            El Mix para Canarios de Nelsoni Ranch provee una optima nutrición con todas las vitaminas y nutrientes que las mejores semillas pueden dar, manteniendo a su canario vital y feliz.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a> 
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/mixLoros.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>MIX LOROS</h2>
+        
+                        <p class="prod_descripcion">El Mix para loros de Nelsoni Ranch Especialmente formulado para psitácidos de porte mediano a grande como guacamayos, loros amazónicos, entre otros.</p>
+                        <a href="#"><b>Mas Info.</b></a> 
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/mixPeriquitos.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>MIX PERIQUITOS</h2>
+        
+                        <p class="prod_descripcion">El Mix para Periquitos de Nelsoni Ranch Especialmente formulado para pequeños psitácidos como periquitos australianos, variedades de agapornis, entre otros.</p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/mixSilvestres.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>MIX SILVESTRES</h2>
+        
+                        <p class="prod_descripcion">El Mix para pájaros Silvestres de Nelsoni Ranch Especialmente formulado para pájaros silvestres como diamantes de Gould, Mandarin, jilgueros entre otros.</p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/mix-cobayos.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>MIX COBAYOS</h2>
+                        
+                        <p class="prod_descripcion">
+                            Especialmente formulado para diferentes variedades de cobayo. Su mayor componente es el balanceado especifico de cobayos.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a> "{% static './media/img/otros/completefood_conejos.c282351.png' %}"
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/completefood_conejos.c282351.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>MIX CONEJOS</h2>
+                        
+                        <p class="prod_descripcion">
+                            El Balanceado para Conejos de Nelsoni Ranch provee una óptima nutrición con todas las vitaminas y nutrientes, manteniendo a su roedor vital y feliz.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a> 
+                    </div>
+                </div>
+
+
+                
+
+        
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/tetracolor.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>TETRACOLOR</h2>
+                        <h3>XL Tropical Granules</h3>
+                        
+                        <p class="prod_descripcion">
+                            Formulado para tener mayor flotabilidad y ser aprovechado tanto por peces que comen en la superficie, como los que se alimentan en la zona media e inferior del acuario.
+                        </p>
+                        <a href="#"><b>Mas Info.</b></a> 
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="container_img">
+                        <img class="img_prod" src="{% static './media/img/otros/shulet-carassius2.png' %}" alt="producto">
+                    </div>
+                    <div class="info_producto">
+                        <h2>SHULET TROPICAL</h2>
+        
+                        <p class="prod_descripcion">Alimento completo balanceado para peces tropicales. Escamado.</p>
+                        <a href="#"><b>Mas Info.</b></a>
+                    </div>
+                </div>           
+            </div>
+        </div>
+        <div class="categorias">
+            <button onclick="filtrarProductos('perro')">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <b>PERROS</b> 
+            </button>
+            <button onclick="filtrarProductos('gato')">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <b>GATOS</b> </button>
+            <button onclick="filtrarProductos('otros')">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <b>OTROS</b> </button>
+        </div>
+    
+        
+    </div>
+
+   </main>
+
+   
+
+   <script src="{% static './js/script.js' %}"></script>
+   {% endblock %}
