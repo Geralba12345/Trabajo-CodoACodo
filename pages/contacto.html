@@ -9,6 +9,10 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="shortcut icon" href="/Trabajo-CodoACodo/assets/media/icons/perro.png" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+
     <title>Veterinaria Los Lobos</title>
 </head>
 <body>
@@ -38,29 +42,59 @@
 
    <main>
     <section id="hero">
-        <article>
-            <form class="form" action="" method="post" id="contact-form" onsubmit="return validarFormulario()">
-                <h2>Formulario de contacto</h2>
-                <div>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre">
-                </div>
-                <div>
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div>
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" cols="50" maxlength="300"></textarea>
-                </div>
-                <div>
-                    <label for="suscripcion">Acepto la Cláusula de Contacto</label>
-                    <input type="checkbox" id="suscripcion" name="suscripcion">
-                </div>
-                <button type="submit" value="Enviar">Enviar</button>
-            </form>
+        <div class="comet-form" id="app">
 
-        </article>
+            <article class="caja-form">
+                <section class="comentarios">
+
+                    <form @submit.prevent="agregarComentario" id="formulario-comentario">
+                        <h2>Formulario de contacto</h2>
+                        <label for="nombre"></label>
+                        <input type="text" id="nombre" name="nombre" v-model="nombre" placeholder="Ingrese su nombre" required>
+
+                        <label for="email"></label>
+                        <input type="email" id="email" name="email" v-model="email" placeholder="Ingrese su Email" required>
+
+                        <label for="comentario">Comentario:</label>
+                        <textarea id="comentario" name="comentario" rows="4" v-model="comentarioTexto" required></textarea>
+
+                        <label for="suscripcion">Acepto la Cláusula de Contacto</label>
+                        <input type="checkbox" id="suscripcion" name="suscripcion" v-model="suscripcion">
+
+                        <button type="submit">Agregar Comentario</button>
+                    </form>
+
+                   
+                </section>
+            </article>
+
+            <article class="caja-comentarios">
+                <section class="comentarios">
+                    <h2>Comentarios</h2>
+                    <!-- <div v-for="(comentario, index) in comentarios" :key="index" class="comentario">
+                        <strong>{{ comentario.nombre }}:</strong><br>
+                        <strong>{{ comentario.email }}</strong><br>
+                        {{ comentario.comentario }}
+                    </div> -->
+                    <!-- Dentro del bucle v-for que muestra los comentarios -->
+                    <div v-for="(comentario, index) in comentarios" :key="index" class="comentario">
+                        <strong>{{ comentario.nombre }}:</strong><br>
+                        <strong>{{ comentario.email }}</strong><br>
+                        {{ comentario.comentario }}
+                        
+                        <br>
+                        <!-- Botones de editar y eliminar -->
+                        <button class="btn-coment" @click="editarComentario(index)">Editar</button>
+                        <button class="btn-coment"  @click="eliminarComentario(index)">Eliminar</button>
+                    </div>
+
+                </section>
+                
+            </article>
+
+        </div>
+
+
         <article class="location">
             <h2>Nuestra ubicación</h2>
             <p>
@@ -76,6 +110,135 @@
         </article>
     </section>
    </main>
+
+
+   <script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            nombre: '',
+            email: '',
+            comentarioTexto: '',
+            suscripcion: false,
+            comentarios: []
+        },
+        methods: {
+            agregarComentario: function () {
+                if (!this.suscripcion) {
+                    alert("Debe aceptar la Cláusula de Contacto para enviar el comentario.");
+                    return;
+                }
+
+                this.comentarios.push({
+                    nombre: this.nombre,
+                    email: this.email,
+                    comentario: this.comentarioTexto
+                });
+
+                this.nombre = '';
+                this.email = '';
+                this.comentarioTexto = '';
+                this.suscripcion = false;
+            },
+
+            editarComentario: function (index) {
+                const comentario = this.comentarios[index];
+                if (comentario.idUsuario === this.usuarioActual) {
+                    const nuevoTexto = prompt("Edita el comentario:", comentario.comentario);
+                    if (nuevoTexto !== null) {
+                        this.comentarios[index].comentario = nuevoTexto;
+                    }
+                } else {
+                    alert("No puedes editar este comentario, no eres el propietario.");
+                }
+            },
+
+            eliminarComentario: function (index) {
+                const comentario = this.comentarios[index];
+                if (comentario.idUsuario === this.usuarioActual) {
+                    const confirmacion = confirm("¿Estás seguro de que quieres eliminar este comentario?");
+                    if (confirmacion) {
+                        this.comentarios.splice(index, 1);
+                    }
+                } else {
+                    alert("No puedes eliminar este comentario, no eres el propietario.");
+                }
+            }
+        }
+    });
+    </script>
+
+
+
+
+
+
+   
    <script src="../assets/js/script.js"></script>
+
 </body>
+
+<!-- 
+
+<script>
+    const app = new Vue({
+    el: '#app',
+    data: {
+        nombre: '',
+        email: '',
+        comentarioTexto: '',
+        suscripcion: false,
+        comentarios: []
+    },
+    methods: {
+        agregarComentario: function () {
+            if (!this.suscripcion) {
+                alert("Debe aceptar la Cláusula de Contacto para enviar el comentario.");
+                return;
+            }
+
+            // Agregar el nuevo comentario al array de comentarios
+            this.comentarios.push({
+                nombre: this.nombre,
+                email: this.email,
+                comentario: this.comentarioTexto
+            });
+
+            // Limpiar el formulario
+            this.nombre = '';
+            this.email = '';
+            this.comentarioTexto = '';
+            this.suscripcion = false;
+        },
+
+        editarComentario: function (index) {
+            // lógica para editar el comentario
+            const nuevoTexto = prompt("Edita el comentario:", this.comentarios[index].comentario);
+            if (nuevoTexto !== null) {
+                this.comentarios[index].comentario = nuevoTexto;
+            }
+        },
+
+        eliminarComentario: function (index) {
+            // lógica para eliminar el comentario
+            const confirmacion = confirm("¿Estás seguro de que quieres eliminar este comentario?");
+            if (confirmacion) {
+                this.comentarios.splice(index, 1); // Elimina el comentario del array
+            }
+        }
+    }
+});
+
+</script>  -->
+
 </html>
+
+
+
+
+
+
+
+
+
+
